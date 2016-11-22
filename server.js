@@ -85,7 +85,7 @@ app.put("/contactlist/:id", function(req, res){
 	function (err, docs){
 		console.log(docs);
 		res.json(docs);
-	});
+	}); 
 });
 
 var sendMail = function(email){
