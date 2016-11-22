@@ -1,5 +1,5 @@
 var express = require("express");
-var app = express();
+var app = express(); 
 
 var mongojs = require("mongojs");
 var db = mongojs("contactlist", ["contactlist"]);
