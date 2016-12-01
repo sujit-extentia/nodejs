@@ -18,7 +18,8 @@ app.use(bodyParser.json());
 
 app.get("/contactlist", function(req, res){
 	console.log("I received a GET request.");
-	
+	myVar = "Hello";
+	console.log("myVar in step-1>>", myVar);
 	db.contactlist.find(function (err, docs){
 		console.log(docs);
 		res.json(docs);
@@ -49,17 +50,7 @@ app.get("/contactlist", function(req, res){
 
 app.post('/contactlist', function(req, res){
 	console.log(req.body);
-	myVar = "Hello";
-	console.log("myVar in step-1>>", myVar);
-	db.contactlist.insert(req.body, function (err, docs){
-		//console.log(docs);
-		res.json(docs);
-		sendMail(req.body.email);
-	});
-});
-
-app.post('/test', function(req, res){
-	//console.log(req.body);
+	
 	console.log("myVar in step-2>>", myVar);
 	db.contactlist.insert(req.body, function (err, docs){
 		//console.log(docs);
@@ -67,6 +58,7 @@ app.post('/test', function(req, res){
 		sendMail(req.body.email);
 	});
 });
+
 
 app.delete('/contactlist/:id', function(req, res){
 	var id = req.params.id;
