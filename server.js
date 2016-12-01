@@ -20,7 +20,7 @@ app.get("/contactlist", function(req, res){
 	console.log("I received a GET request.");
 	console.log("myVar in step-2>>", myVar);
 	db.contactlist.find(function (err, docs){
-		console.log(docs);
+		//console.log(docs);
 		res.json(docs);
 	});
 	
@@ -48,7 +48,7 @@ app.get("/contactlist", function(req, res){
 
 
 app.post('/contactlist', function(req, res){
-	console.log(req.body);
+	//console.log(req.body);
 	myVar = req.body.email;
 	console.log("myVar in step-1>>", myVar);
 	db.contactlist.insert(req.body, function (err, docs){
@@ -72,7 +72,7 @@ app.get("/contactlist/:id", function(req, res){
 	var id = req.params.id;
 	console.log("Edit id  @server :" + id);
 	db.contactlist.findOne({_id:mongojs.ObjectId(id)}, function (err, docs){
-		console.log(docs);
+		//console.log(docs);
 		res.json(docs);
 	});
 });
@@ -87,7 +87,7 @@ app.put("/contactlist/:id", function(req, res){
 		new:true
 	}, 
 	function (err, docs){
-		console.log(docs);
+		//console.log(docs);
 		res.json(docs);
 	}); 
 });
