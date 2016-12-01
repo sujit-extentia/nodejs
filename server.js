@@ -43,7 +43,7 @@ app.get("/contactlist", function(req, res){
 	
 	// var contactlist = [person1, person2, person3];
 	// res.json(contactlist);
-});
+}); 
 
 
 app.post('/contactlist', function(req, res){
