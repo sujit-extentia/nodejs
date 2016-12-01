@@ -7,6 +7,7 @@ var mongojs = require("mongojs");
 var db = mongojs("user1:user123@ds135797.mlab.com:35797/contactlist", ["contactlist"]);
 
 var bodyParser = require("body-parser");
+var myVar = '';
 
 // app.get("/", function(req, res){
 	// res.send("Hello world!!");
@@ -48,6 +49,18 @@ app.get("/contactlist", function(req, res){
 
 app.post('/contactlist', function(req, res){
 	console.log(req.body);
+	myVar = "Hello";
+	console.log("myVar in step-1>>", myVar);
+	db.contactlist.insert(req.body, function (err, docs){
+		//console.log(docs);
+		res.json(docs);
+		sendMail(req.body.email);
+	});
+});
+
+app.post('/test', function(req, res){
+	//console.log(req.body);
+	console.log("myVar in step-2>>", myVar);
 	db.contactlist.insert(req.body, function (err, docs){
 		//console.log(docs);
 		res.json(docs);
